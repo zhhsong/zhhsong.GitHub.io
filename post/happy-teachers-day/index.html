@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HAPPY TEACHER&#39;S DAY  | Applied and Environmental Seismology Group</title>
+<link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1599146524957">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="HAPPY TEACHER&#39;S DAY  | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="曾老师：
+随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。
+目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhhsong.GitHub.io">
+  <img class="avatar" src="https://zhhsong.GitHub.io/images/avatar.png?v=1599146524957" alt="">
+  </a>
+  <h1 class="site-title">
+    Applied and Environmental Seismology Group
+  </h1>
+  <p class="site-description">
+    *****
+
+
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          HOME
+        </a>
+      
+    
+      
+        <a href="https://zhhsong.GitHub.io/post/publication" class="menu">
+          PUBLICATION
+        </a>
+      
+    
+      
+        <a href="/post/researchers" class="menu">
+          RESEARCHERS
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          ARCHIVES
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          TAGS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              HAPPY TEACHER&#39;S DAY 
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-09-03
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>曾老师：<br>
+随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。<br>
+目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。<br>
+网站的搭建和维护可能都比较困难，恰巧我没有经验。<br>
+网页的设计以及细节我也确实不会。<br>
+所以目前我利用傻瓜的方式搭建了一个Github Pages的免费主页，只有1G的空间，随着工作的积累，后续在考虑迁移至服务器。<br>
+我希望能够一直维护这个属于我们组的网站，并不断完善使其达到可以展示给别人看的程度。<br>
+并且希望能够一直继承下去。</p>
+<p>哦，对了，域名是： zengxf.group<br>
+有点尴尬的教师节礼物，希望您别嫌弃~<br>
+再次祝您教师节快乐！</p>
+<p>宋政宏<br>
+2020.09.03</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhhsong.GitHub.io/post/researchers/">
+              <h3 class="post-title">
+                 ABOUT US
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://zhhsong.GitHub.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

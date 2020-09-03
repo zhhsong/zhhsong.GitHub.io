@@ -1,112 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
-    <title>LGNB </title>
-    <updated>2020-09-03T13:52:16.895Z</updated>
+    <title>Applied and Environmental Seismology Group</title>
+    <updated>2020-09-03T15:22:44.076Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
+    <subtitle>*****
+
+</subtitle>
     <logo>https://zhhsong.GitHub.io/images/avatar.png</logo>
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, LGNB </rights>
+    <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
     <entry>
-        <title type="html"><![CDATA[ncedc]]></title>
-        <id>https://zhhsong.GitHub.io/post/ncedc/</id>
-        <link href="https://zhhsong.GitHub.io/post/ncedc/">
-        </link>
-        <updated>2020-09-03T13:34:42.000Z</updated>
-        <content type="html"><![CDATA[<p>ssss</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[code里边只能放一篇文章]]></title>
-        <id>https://zhhsong.GitHub.io/post/code/</id>
-        <link href="https://zhhsong.GitHub.io/post/code/">
-        </link>
-        <updated>2020-09-03T13:32:57.000Z</updated>
-        <content type="html"><![CDATA[<p>？？？？</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2 test]]></title>
-        <id>https://zhhsong.GitHub.io/post/about/</id>
-        <link href="https://zhhsong.GitHub.io/post/about/">
-        </link>
-        <updated>2020-09-03T13:27:07.000Z</updated>
-        <content type="html"><![CDATA[<p>dsgdhdf<br>
-dshg<br>
-sdh<br>
-sghd<br>
-shd<br>
-hd<br>
-gjfs<br>
-j<br>
-j<br>
-f<br>
-1</p>
-<p>y 5</p>
-<p>dfh<br>
-d<br>
-jfsg<br>
-j f<br>
-j</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ 1]]></title>
+        <title type="html"><![CDATA[PBULICATION]]></title>
         <id>https://zhhsong.GitHub.io/post/publication/</id>
         <link href="https://zhhsong.GitHub.io/post/publication/">
         </link>
-        <updated>2020-09-03T13:12:21.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
+        <updated>2020-09-03T14:20:56.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="journal-paper">Journal Paper</h2>
+<hr>
 <h3 id="2020">2020</h3>
+<p>林融冰, 曾祥方, 宋政宏, 徐善辉, 胡久鹏, 孙天为, &amp; 王宝善. (2020). 分布式光纤声波传感系统在近地表成像中的应用 Ⅱ: 背景噪声成像. 地球物理学报,63 <strong>(4)</strong>, 28.</p>
+<p>宋政宏, 曾祥方, 徐善辉, 胡久鹏, 孙天为, &amp; 王宝善. (2020). 分布式光纤声波传感系统在近地表成像中的应用 Ⅰ: 主动源高频面波. 地球物理学报, 63 <strong>(2)</strong>, 532-540.</p>
+<p>张丽娜, 任亚玲, 林融冰, 宋政宏, &amp; 曾祥方. (2020). 分布式光纤声波传感器及其在天然地震学研究中的应用. 地球物理学进展,  <strong>(1)</strong>, 9.</p>
 <h3 id="2019">2019</h3>
-<p>ffhs<br>
-saf hf<br>
-shfdh<br>
-fdhd<br>
-hd<br>
-hd<br>
-fh<br>
-dfh<br>
-dfh<br>
-dfh<br>
-df<br>
-hdf<br>
-hdf<br>
-hdf<br>
-hd<br>
-fh<br>
-dsh<br>
-dfj<br>
-fgjf<br>
-j<br>
-fgj<br>
-fgk<br>
-dhgk<br>
-dk<br>
-fdhk<br>
-dhk<br>
-dhgk<br>
-dghk<br>
-ghd<br>
-khg<br>
-kdgh<br>
-kdgk<br>
-d</p>
-<p>fjk<br>
-dfkdgkgd<br>
-kd<br>
-kdk<br>
-dk<br>
-dk<br>
-dghk<br>
-gdk<br>
-ghk<br>
-lfjsg<br>
-hs<br>
-hjs<br>
-dhdsh</p>
+<p>Zeng, X., &amp; Thurber, C. (2019). Three-dimensional shear wave velocity structure revealed with ambient noise tomography in the Parkfield, California region. Physics of the Earth and Planetary Interiors, 292, 67-75.</p>
+<p>Luo, X., Zeng, X., Dong, P., Zhou, Y., Wei, X., &amp; Cheng, H. (2019). The Longnan M_S5. 5 Earthquake on September 12, 2008: A Very Shallow Event Probably Triggered by the Wenchuan Earthquake. Earthquake Research in China,<br>
+<strong>(3)</strong>, 3.<br>
+Zhang, L., Luo, Y., Chen, Z., Xie, Z., Zhou, L., &amp; Zeng, X. (2019). Surface Wave Group Velocity Tomography Imaging from Ambient Noise for Fujian Province and Its Adjacent Areas. Earthquake Research in China, 33 <strong>(1)</strong>, 52-61.</p>
+<h3 id="2018">2018</h3>
+<p>Wang, H. F., Zeng, X., Miller, D. E., Fratta, D., Feigl, K. L., Thurber, C. H., &amp; Mellors, R. J. (2018). Ground motion response to an ML 4.3 earthquake using co-located distributed acoustic sensing and seismometer arrays. Geophysical Journal International, 213 <strong>(3)</strong>, 2020-2036.</p>
+<p>Song, Z., Zeng, X., Thurber, C. H., Wang, H. F., &amp; Fratta, D. (2018). Imaging shallow structure with active-source surface wave signal recorded by distributed acoustic sensing arrays. Earthquake Science, <strong>(4)</strong>, 4.</p>
+<p>Zeng, X., &amp; Ni, S. (2018). Finite difference calculation of traveltime on non-orthogonal grid. Earthquake Science, <strong>(2)</strong>, 2.</p>
+<h3 id="2017">2017</h3>
+<p>Zeng, X., Lancelle, C., Thurber, C., Fratta, D., Wang, H., Lord, N., ... &amp; Clarke, A. (2017). Properties of noise cross‐correlation functions obtained from a distributed acoustic sensing array at Garner Valley, California. Bulletin of the Seismological Society of America, 107 <strong>(2)</strong>, 603-610.</p>
+<h3 id="2016">2016</h3>
+<p>Zeng, X., Thurber, C. H., Shelly, D. R., Harrington, R. M., Cochran, E. S., Bennington, N. L., ... &amp; McClement, K. (2016). 3-DP-and S-wave velocity structure and low-frequency earthquake locations in the Parkfield, California region. Geophysical Journal International, 206**(3)**, 1574-1585.</p>
+<p>Zeng, X., &amp; Thurber, C. H. (2016). A graphics processing unit implementation for time–frequency phase‐weighted stacking. Seismological Research Letters, 87 <strong>(2A)</strong>, 358-362.</p>
+<h2 id="abstract">ABSTRACT</h2>
+<hr>
+<h3 id="2020-2">2020</h3>
+<h3 id="2019-2">2019</h3>
+<h3 id="2018-2">2018</h3>
+<p>Zeng, X., Wang, H., Lord, N., Alshammari, A., Fratta, D., Coleman, T., &amp; MacLaughlin, M. (2018). Seismic imaging with Distributed Acoustic Sensing in an active room-and-pillar mine. EGUGA, 10971.</p>
+<h3 id="2017-2">2017</h3>
+<p>Zeng, X., Thurber, C. H., Wang, H. F., &amp; Fratta, D. (2017). 3D shear wave velocity structure revealed with ambient noise tomography on a DAS array. AGUFM, 2017, S33F-06.</p>
 ]]></content>
     </entry>
 </feed>
