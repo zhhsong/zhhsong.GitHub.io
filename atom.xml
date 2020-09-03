@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
-    <title>Applied and Environmental Seismology Group</title>
-    <updated>2020-09-03T12:58:44.412Z</updated>
+    <title>LGNB </title>
+    <updated>2020-09-03T13:01:20.248Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
     <logo>https://zhhsong.GitHub.io/images/avatar.png</logo>
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
+    <rights>All rights reserved 2020, LGNB </rights>
 </feed>
