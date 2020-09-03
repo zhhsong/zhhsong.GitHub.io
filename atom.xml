@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
     <title>LGNB </title>
-    <updated>2020-09-03T13:04:42.058Z</updated>
+    <updated>2020-09-03T13:18:08.708Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
     <logo>https://zhhsong.GitHub.io/images/avatar.png</logo>
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LGNB </rights>
+    <entry>
+        <title type="html"><![CDATA[PUBLICATION]]></title>
+        <id>https://zhhsong.GitHub.io/post/publication/</id>
+        <link href="https://zhhsong.GitHub.io/post/publication/">
+        </link>
+        <updated>2020-09-03T13:12:21.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="2020">2020</h3>
+<h2 id="zeng">Zeng</h2>
+<h3 id="2019">2019</h3>
+]]></content>
+    </entry>
 </feed>
