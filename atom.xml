@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
-    <title>Gridea</title>
-    <updated>2020-09-03T12:09:04.319Z</updated>
+    <title>Applied and Environmental Seismology Group</title>
+    <updated>2020-09-03T12:23:32.542Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://zhhsong.GitHub.io/images/avatar.png</logo>
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://zhhsong.GitHub.io/post/hello-gridea/</id>
