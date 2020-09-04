@@ -2,21 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title> ABOUT US | Applied and Environmental Seismology Group</title>
+<title>refteck/miniseed/segy格式数据转换成sac格式 | Applied and Environmental Seismology Group</title>
 <link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1599231021740">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title=" ABOUT US | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="refteck/miniseed/segy格式数据转换成sac格式 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content=" Applied and Enverimental Seismological Group 
-❤️PARTICIPANTS
-Researcher
-Xiangfang Zeng （曾祥方）
-Research Interests： Seismi..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="obspy是一个非常强大的地震学python库。当我们处理地震数据时，经常遇到各种各样的数据类型。obspy.read( )可以非常方便读入任意数据类型的地震数据，并将其转化为所需的格式。
+首先需要安装obspy
+pip install o..." />
+    <meta name="keywords" content="code" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -86,95 +84,97 @@ Research Interests： Seismi..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-               ABOUT US
+              refteck/miniseed/segy格式数据转换成sac格式
             </h2>
             <div class="post-info">
               <span>
-                2020-09-03
+                2020-09-04
               </span>
               <span>
                 2 min read
               </span>
               
+                <a href="https://zhhsong.GitHub.io/tag/1_UMF5hw2/" class="post-tag">
+                  # code
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <center> Applied and Enverimental Seismological Group </center>
-<h1 id="️participants">❤️PARTICIPANTS</h1>
-<h2 id="researcher">Researcher</h2>
-<h3 id="xiangfang-zeng-曾祥方">Xiangfang Zeng （曾祥方）</h3>
-<p><strong>Research Interests：</strong> Seismic tomography, Distributed Acoustic Sensing<br>
-<strong>Vitae：</strong></p>
-<ul>
-<li>2017.08-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>Professor</em></li>
-<li>2016.11-2017.07 University of Wisconsin–Madison  <em>Assistant Professor</em></li>
-<li>2013.11-2016.10 University of Wisconsin–Madison  <em>Post-doc</em></li>
-<li>2012.02-2013.10 University of Chinese Academy of Sciences <em>Post-doc</em></li>
-<li>2008.09-2009.08 Massachusetts Institute of Technology <em>Visiting scholar</em></li>
-<li>2006.09-2012.01 University of Science and Technology of China  <em>PH.D.</em></li>
-<li>2002.09-2006.07 University of Science and Technology of China  <em>Bachelor</em></li>
-</ul>
-<p><strong>Contact</strong><br>
-Email: zengxf@whigg.ac.cn</p>
-<hr>
-<h2 id="students">Students</h2>
-<h3 id="rongbin-lin-林融冰">Rongbin Lin (林融冰)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2018.09-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>PH.D.</em><br>
-Email: robin_lin@163.com</li>
-</ul>
-<h3 id="zhenghong-song-宋政宏">Zhenghong Song (宋政宏)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2018.09-now      University of Science and Technology of China   <em>PH.D.</em></li>
-<li>2014.09-2018.06  Chang'an University <em>Bachelor</em><br>
-Email: zhhsong6@mail.ustc.edu.cn</li>
-</ul>
-<h3 id="gongbo-zhang-张宫博">Gongbo Zhang (张宫博)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2020.09-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>PH.D.</em></li>
-<li>2017.09-2020.06  Jilin University <em>Master</em><br>
-Email:</li>
-</ul>
-<h2 id="former-students">Former students</h2>
-<h3 id="yaling-ren-任亚玲">Yaling Ren （任亚玲）</h3>
-<p>2020.06       <em>Master</em><br>
-Email: renyaling0202@qq.com</p>
+                <p>obspy是一个非常强大的地震学python库。当我们处理地震数据时，经常遇到各种各样的数据类型。obspy.read( )可以非常方便读入任意数据类型的地震数据，并将其转化为所需的格式。<br>
+首先需要安装obspy<br>
+<code>pip install obspy</code><br>
+以refteck为例：<br>
+该程序将目录下所有名字结尾为EE80的文件转化为以年.月.日.时命名的sac文件</p>
+<pre><code>import obspy
+def get_file_list(basis_dir=&quot;./&quot;, begin=&quot;&quot;, end=&quot;&quot;): # 获取文件列表
+    import os
+    path_list = os.listdir(basis_dir)
+    list_final = []
+    for partial in path_list:
+        if begin:
+            if partial[:len(begin)] == begin:
+                list_final.append(partial)
+        elif end:
+            if partial[-len(end):] == end:
+                list_final.append(partial) 		
+        elif begin and end:
+            if partial[:len(begin)] == begin and partial[-len(end):] == end:
+                list_final.append(partial)
+    				
+        else:
+            list_final.append(partial)
+    return list_final
+def refteck2sac(filname):  # 读文件并输出sac
+    str = obspy.read(filname,component_codes=&quot;ZNE&quot;)
+    for tr in str:
+        fname = &quot;%d%02d%02d%02d.%s.%s.SAC&quot;%(tr.stats.starttime.year,\
+                                      tr.stats.starttime.month,\
+                                          tr.stats.starttime.day,\
+                                              tr.stats.starttime.hour,\
+                                                  tr.stats.station,tr.stats.channel)
+        tr.write(fname,format=&quot;SAC&quot;)
+
+if __name__=='__main__':
+    list = get_file_list(end='EE80')
+    for filname in list:
+        refteck2sac(filname)
+</code></pre>
+<p>对于miniseed格式的数据，同样利用obspy.read( )读入，并转化。<br>
+为了方便，可以直接命令行输入 :<br>
+<code>python miniseed2sac.py miniseedname</code><br>
+miniseed2sac源代码：</p>
+<pre><code>from obspy.core import read
+import sys
+def main(arg):
+    st=read(arg)
+    for tr in st:
+    fname=&quot;%s.%s.%s.%s.sac&quot;%(tr.stats.network,tr.stats.station,tr.stats.locarion,tr.stats.channel)
+
+if __name__=='__main__':
+    arg=sys.argv[1]
+    main(arg)
+</code></pre>
+<p>对于segy等其他文件，同样可以读入，并在python中进行操作</p>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%EF%B8%8Fparticipants">❤️PARTICIPANTS</a>
-<ul>
-<li><a href="#researcher">Researcher</a>
-<ul>
-<li><a href="#xiangfang-zeng-%E6%9B%BE%E7%A5%A5%E6%96%B9">Xiangfang Zeng （曾祥方）</a></li>
-</ul>
-</li>
-<li><a href="#students">Students</a>
-<ul>
-<li><a href="#rongbin-lin-%E6%9E%97%E8%9E%8D%E5%86%B0">Rongbin Lin (林融冰)</a></li>
-<li><a href="#zhenghong-song-%E5%AE%8B%E6%94%BF%E5%AE%8F">Zhenghong Song (宋政宏)</a></li>
-<li><a href="#gongbo-zhang-%E5%BC%A0%E5%AE%AB%E5%8D%9A">Gongbo Zhang (张宫博)</a></li>
-</ul>
-</li>
-<li><a href="#former-students">Former students</a>
-<ul>
-<li><a href="#yaling-ren-%E4%BB%BB%E4%BA%9A%E7%8E%B2">Yaling Ren （任亚玲）</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhhsong.GitHub.io/post/publication/">
+              <h3 class="post-title">
+                PBULICATION
+              </h3>
+            </a>
+          </div>
         
 
         

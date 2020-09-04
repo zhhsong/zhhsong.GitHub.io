@@ -2,19 +2,22 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HAPPY TEACHER&#39;S DAY  | Applied and Environmental Seismology Group</title>
+<title>从NCEDC下载所需地震的地震记录并获取仪器响应文件 | Applied and Environmental Seismology Group</title>
 <link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1599231021740">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="HAPPY TEACHER&#39;S DAY  | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="从NCEDC下载所需地震的地震记录并获取仪器响应文件 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="曾老师：
-随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。
-目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="首先从http://service.ncedc.org/fdsnws/event/1中查询所需事件的ID
+之后在一下程序中输入eventID，台网，分量信息即可
+import urllib
+import obspy
+import os
+de..." />
+    <meta name="keywords" content="code" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -84,34 +87,86 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              HAPPY TEACHER&#39;S DAY 
+              从NCEDC下载所需地震的地震记录并获取仪器响应文件
             </h2>
             <div class="post-info">
               <span>
-                2020-09-03
+                2020-09-04
               </span>
               <span>
                 2 min read
               </span>
               
+                <a href="https://zhhsong.GitHub.io/tag/1_UMF5hw2/" class="post-tag">
+                  # code
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>曾老师：<br>
-随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。<br>
-目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。<br>
-网站的搭建和维护可能都比较困难，恰巧我没有经验。<br>
-网页的设计以及细节我也确实不会。<br>
-所以目前我利用傻瓜的方式搭建了一个Github Pages的免费主页，只有1G的空间，随着工作的积累，后续在考虑迁移至服务器。<br>
-我希望能够一直维护属于我们组的网站，并不断完善使其达到可以展示给别人看的程度。<br>
-当然，目前的界面有些丑，但还可以满足当下需求，等内容逐渐完善，我在拿出一些时间更进一步学习一下，使其美观。<br>
-并且希望能够一直继承下去。</p>
-<p>哦，对了，域名是： zengxf.group<br>
-有点尴尬的教师节礼物，希望您别嫌弃~<br>
-再次祝您教师节快乐！</p>
-<p>宋政宏<br>
-2020.09.03</p>
+                <p>首先从<a href="http://service.ncedc.org/fdsnws/event/1">http://service.ncedc.org/fdsnws/event/1</a>中查询所需事件的ID<br>
+之后在一下程序中输入eventID，台网，分量信息即可</p>
+<pre><code>import urllib
+import obspy
+import os
+def download_file(url, destDir):
+	urllib.request.urlretrieve(url, destDir)
+
+def main(eventID, network, channel, catalog=None, station=None, location=None):
+	website = &quot;http://service.ncedc.org&quot; 
+	destDir = &quot;./&quot; + eventID +'/'
+	if os.path.exists(destDir)==False:
+		os.mkdir(destDir)
+	coda = &quot;/ncedcws/eventdata/1/query?&quot;
+	fileName = eventID
+	if network:
+		coda += &quot;network=&quot; + network
+		fileName += &quot;|network=&quot; + network
+	
+	if station:
+		coda += &quot;&amp;station=&quot; + station
+		fileName += &quot;|station=&quot; + station
+		
+	if channel:
+		coda += &quot;&amp;channel=&quot; + channel
+		fileName += &quot;|channel=&quot; + channel
+		
+	if location:
+		coda += &quot;&amp;location=&quot; + location
+		fileName += &quot;|location=&quot; + location
+		
+	if catalog:
+		coda += &quot;&amp;catalog=&quot; + catalog
+		fileName += &quot;|catalog=&quot; + catalog
+		
+	coda += &quot;&amp;eventid=&quot; + eventID
+	fileNameSeed = &quot;EventsData-&quot; + fileName + &quot;.mseed&quot;
+	
+	url = website + coda
+	filePath = destDir + fileNameSeed
+	
+	download_file(url, filePath)
+	print(&quot;mseed file downloaded: &quot; + fileNameSeed)
+	seedFile= obspy.read(filePath)
+	stationList = [None] * len(seedFile)
+	print(seedFile)
+	for ii in range(len(seedFile)):
+		stationList[ii] = seedFile[ii].stats.station
+	for tr in seedFile:
+    		fname =destDir + &quot;%s.%s.%s.%s.sac&quot;%(tr.stats.network,tr.stats.station,tr.stats.location,tr.stats.channel) 
+    		tr.write(fname,format=&quot;SAC&quot;)
+    		instrumentResponseDownPath =  &quot;http://ncedc.org/ftp/pub/doc/&quot;+network+&quot;.info/&quot;+ network + &quot;.responses/RESP.&quot; + network + &quot;.&quot; + tr.stats.station + &quot;.&quot; + tr.stats.location + '.' + tr.stats.channel
+    		print(instrumentResponseDownPath)
+    		instrumentResponseFileName = destDir + &quot;RESP.&quot; + network + &quot;.&quot; + tr.stats.station + &quot;.&quot; + tr.stats.location + '.' + tr.stats.channel
+    		download_file(instrumentResponseDownPath, instrumentResponseFileName)
+    		print(&quot;instrument response download: &quot; + instrumentResponseFileName)
+	os.system(' rm %s*.mseed'%(destDir))	
+	print(&quot;----- All Done -----&quot;)
+	
+if __name__ == '__main__':
+	main(eventID=&quot;72825811&quot;, network=&quot;NC&quot;, channel=&quot;EHZ&quot;)
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -124,9 +179,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://zhhsong.GitHub.io/post/researchers/">
+            <a href="https://zhhsong.GitHub.io/post/refteckminiseedsegy-ge-shi-shu-ju-zhuan-huan-cheng-sac-ge-shi/">
               <h3 class="post-title">
-                 ABOUT US
+                refteck/miniseed/segy格式数据转换成sac格式
               </h3>
             </a>
           </div>

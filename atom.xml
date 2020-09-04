@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
     <title>Applied and Environmental Seismology Group</title>
-    <updated>2020-09-04T13:21:50.199Z</updated>
+    <updated>2020-09-04T14:50:24.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
@@ -13,38 +13,43 @@
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
     <entry>
-        <title type="html"><![CDATA[PBULICATION]]></title>
-        <id>https://zhhsong.GitHub.io/post/publication/</id>
-        <link href="https://zhhsong.GitHub.io/post/publication/">
+        <title type="html"><![CDATA[下载PoroTomo主动源的地震仪数据]]></title>
+        <id>https://zhhsong.GitHub.io/post/xia-zai-porotomo-zhu-dong-yuan-de-di-zhen-yi-shu-ju/</id>
+        <link href="https://zhhsong.GitHub.io/post/xia-zai-porotomo-zhu-dong-yuan-de-di-zhen-yi-shu-ju/">
         </link>
-        <updated>2020-09-03T14:20:56.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="journal-paper">Journal Paper</h2>
-<hr>
-<h3 id="2020">2020</h3>
-<p>林融冰, 曾祥方, 宋政宏, 徐善辉, 胡久鹏, 孙天为, &amp; 王宝善. (2020). 分布式光纤声波传感系统在近地表成像中的应用 Ⅱ: 背景噪声成像. 地球物理学报,63 <strong>(4)</strong>, 28.</p>
-<p>宋政宏, 曾祥方, 徐善辉, 胡久鹏, 孙天为, &amp; 王宝善. (2020). 分布式光纤声波传感系统在近地表成像中的应用 Ⅰ: 主动源高频面波. 地球物理学报, 63 <strong>(2)</strong>, 532-540.</p>
-<p>张丽娜, 任亚玲, 林融冰, 宋政宏, &amp; 曾祥方. (2020). 分布式光纤声波传感器及其在天然地震学研究中的应用. 地球物理学进展,  <strong>(1)</strong>, 9.</p>
-<h3 id="2019">2019</h3>
-<p>Zeng, X., &amp; Thurber, C. (2019). Three-dimensional shear wave velocity structure revealed with ambient noise tomography in the Parkfield, California region. Physics of the Earth and Planetary Interiors, 292, 67-75.</p>
-<p>Luo, X., Zeng, X., Dong, P., Zhou, Y., Wei, X., &amp; Cheng, H. (2019). The Longnan M_S5. 5 Earthquake on September 12, 2008: A Very Shallow Event Probably Triggered by the Wenchuan Earthquake. Earthquake Research in China, <strong>(3)</strong>, 3.<br>
-Zhang, L., Luo, Y., Chen, Z., Xie, Z., Zhou, L., &amp; Zeng, X. (2019). Surface Wave Group Velocity Tomography Imaging from Ambient Noise for Fujian Province and Its Adjacent Areas. Earthquake Research in China, 33 <strong>(1)</strong>, 52-61.</p>
-<h3 id="2018">2018</h3>
-<p>Wang, H. F., Zeng, X., Miller, D. E., Fratta, D., Feigl, K. L., Thurber, C. H., &amp; Mellors, R. J. (2018). Ground motion response to an ML 4.3 earthquake using co-located distributed acoustic sensing and seismometer arrays. Geophysical Journal International, 213 <strong>(3)</strong>, 2020-2036.</p>
-<p>Song, Z., Zeng, X., Thurber, C. H., Wang, H. F., &amp; Fratta, D. (2018). Imaging shallow structure with active-source surface wave signal recorded by distributed acoustic sensing arrays. Earthquake Science, <strong>(4)</strong>, 4.</p>
-<p>Zeng, X., &amp; Ni, S. (2018). Finite difference calculation of traveltime on non-orthogonal grid. Earthquake Science, <strong>(2)</strong>, 2.</p>
-<h3 id="2017">2017</h3>
-<p>Zeng, X., Lancelle, C., Thurber, C., Fratta, D., Wang, H., Lord, N., ... &amp; Clarke, A. (2017). Properties of noise cross‐correlation functions obtained from a distributed acoustic sensing array at Garner Valley, California. Bulletin of the Seismological Society of America, 107 <strong>(2)</strong>, 603-610.</p>
-<h3 id="2016">2016</h3>
-<p>Zeng, X., Thurber, C. H., Shelly, D. R., Harrington, R. M., Cochran, E. S., Bennington, N. L., ... &amp; McClement, K. (2016). 3-DP-and S-wave velocity structure and low-frequency earthquake locations in the Parkfield, California region. Geophysical Journal International, 206 <strong>(3)</strong>, 1574-1585.</p>
-<p>Zeng, X., &amp; Thurber, C. H. (2016). A graphics processing unit implementation for time–frequency phase‐weighted stacking. Seismological Research Letters, 87 <strong>(2A)</strong>, 358-362.</p>
-<h2 id="abstract">ABSTRACT</h2>
-<hr>
-<h3 id="2020-2">2020</h3>
-<h3 id="2019-2">2019</h3>
-<h3 id="2018-2">2018</h3>
-<p>Zeng, X., Wang, H., Lord, N., Alshammari, A., Fratta, D., Coleman, T., &amp; MacLaughlin, M. (2018). Seismic imaging with Distributed Acoustic Sensing in an active room-and-pillar mine. EGUGA, 10971.</p>
-<h3 id="2017-2">2017</h3>
-<p>Zeng, X., Thurber, C. H., Wang, H. F., &amp; Fratta, D. (2017). 3D shear wave velocity structure revealed with ambient noise tomography on a DAS array. AGUFM, 2017, S33F-06.</p>
+        <updated>2020-09-04T14:42:55.000Z</updated>
+        <content type="html"><![CDATA[<p>因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。<br>
+关于PoroTomo其他数据的需求可以参考该程序进行修改。</p>
+<pre><code>import urllib
+import os
+def download_file(url, destDir):
+	urllib.request.urlretrieve(url, destDir)
+
+def main(sweep_id, station, channel, filename = 'Nodal_data'):
+    website = &quot;ftp://roftp.ssec.wisc.edu/porotomo/PoroTomo/DATA/NODAL_SAC_SWEEP/nodal_sac_files/&quot; 
+    destDir = &quot;./&quot; + filename +'/'
+    if os.path.exists(destDir)==False:
+        os.mkdir(destDir)
+    for i in range(len(sweep_id)):
+        for j in range(len(station)):
+            for k in range(len(channel)):
+                url = website + sweep_id[i] +'/sac_files/'
+                sacName = sweep_id[i] + '.PG.' + station[j] + '.EH' + channel[k] + '.298.sac' 
+                url += sacName
+                filePath = destDir + sacName
+                download_file(url, filePath)
+                print(&quot;sac file downloaded: &quot; + sacName)
+    print(&quot;ALL Done！&quot;)
+                
+if __name__ == '__main__':
+    SWEEP_ID = ['SWEEP_0183','SWEEP_0189']
+    STATION = ['N225','N226','N227','N228','N197','N198','N199','N200','N201',\
+               'N202','N203','N204','N205','N206','N207','N180','N181','N182',\
+                   'N183','N184','N185','N164','N165','N166','N167','N168','N144',\
+                       'N145','N146','N147','N148','N149']
+    CHANNEL = ['E','N','Z']
+    main(SWEEP_ID,STATION,CHANNEL)
+</code></pre>
 ]]></content>
     </entry>
 </feed>

@@ -2,21 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title> ABOUT US | Applied and Environmental Seismology Group</title>
+<title>下载PoroTomo主动源的地震仪数据 | Applied and Environmental Seismology Group</title>
 <link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1599231021740">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title=" ABOUT US | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="下载PoroTomo主动源的地震仪数据 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content=" Applied and Enverimental Seismological Group 
-❤️PARTICIPANTS
-Researcher
-Xiangfang Zeng （曾祥方）
-Research Interests： Seismi..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。
+关于PoroTomo其他数据的需求可以参考该程序进行修改。
+import urllib
+impor..." />
+    <meta name="keywords" content="code" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -86,95 +85,74 @@ Research Interests： Seismi..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-               ABOUT US
+              下载PoroTomo主动源的地震仪数据
             </h2>
             <div class="post-info">
               <span>
-                2020-09-03
+                2020-09-04
               </span>
               <span>
                 2 min read
               </span>
               
+                <a href="https://zhhsong.GitHub.io/tag/1_UMF5hw2/" class="post-tag">
+                  # code
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <center> Applied and Enverimental Seismological Group </center>
-<h1 id="️participants">❤️PARTICIPANTS</h1>
-<h2 id="researcher">Researcher</h2>
-<h3 id="xiangfang-zeng-曾祥方">Xiangfang Zeng （曾祥方）</h3>
-<p><strong>Research Interests：</strong> Seismic tomography, Distributed Acoustic Sensing<br>
-<strong>Vitae：</strong></p>
-<ul>
-<li>2017.08-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>Professor</em></li>
-<li>2016.11-2017.07 University of Wisconsin–Madison  <em>Assistant Professor</em></li>
-<li>2013.11-2016.10 University of Wisconsin–Madison  <em>Post-doc</em></li>
-<li>2012.02-2013.10 University of Chinese Academy of Sciences <em>Post-doc</em></li>
-<li>2008.09-2009.08 Massachusetts Institute of Technology <em>Visiting scholar</em></li>
-<li>2006.09-2012.01 University of Science and Technology of China  <em>PH.D.</em></li>
-<li>2002.09-2006.07 University of Science and Technology of China  <em>Bachelor</em></li>
-</ul>
-<p><strong>Contact</strong><br>
-Email: zengxf@whigg.ac.cn</p>
-<hr>
-<h2 id="students">Students</h2>
-<h3 id="rongbin-lin-林融冰">Rongbin Lin (林融冰)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2018.09-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>PH.D.</em><br>
-Email: robin_lin@163.com</li>
-</ul>
-<h3 id="zhenghong-song-宋政宏">Zhenghong Song (宋政宏)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2018.09-now      University of Science and Technology of China   <em>PH.D.</em></li>
-<li>2014.09-2018.06  Chang'an University <em>Bachelor</em><br>
-Email: zhhsong6@mail.ustc.edu.cn</li>
-</ul>
-<h3 id="gongbo-zhang-张宫博">Gongbo Zhang (张宫博)</h3>
-<p><strong>Vitae：</strong></p>
-<ul>
-<li>2020.09-now      Innovation Academy for Precision Measurement Science and Technology, Chinese Academy of Sciences        <em>PH.D.</em></li>
-<li>2017.09-2020.06  Jilin University <em>Master</em><br>
-Email:</li>
-</ul>
-<h2 id="former-students">Former students</h2>
-<h3 id="yaling-ren-任亚玲">Yaling Ren （任亚玲）</h3>
-<p>2020.06       <em>Master</em><br>
-Email: renyaling0202@qq.com</p>
+                <p>因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。<br>
+关于PoroTomo其他数据的需求可以参考该程序进行修改。</p>
+<pre><code>import urllib
+import os
+def download_file(url, destDir):
+	urllib.request.urlretrieve(url, destDir)
+
+def main(sweep_id, station, channel, filename = 'Nodal_data'):
+    website = &quot;ftp://roftp.ssec.wisc.edu/porotomo/PoroTomo/DATA/NODAL_SAC_SWEEP/nodal_sac_files/&quot; 
+    destDir = &quot;./&quot; + filename +'/'
+    if os.path.exists(destDir)==False:
+        os.mkdir(destDir)
+    for i in range(len(sweep_id)):
+        for j in range(len(station)):
+            for k in range(len(channel)):
+                url = website + sweep_id[i] +'/sac_files/'
+                sacName = sweep_id[i] + '.PG.' + station[j] + '.EH' + channel[k] + '.298.sac' 
+                url += sacName
+                filePath = destDir + sacName
+                download_file(url, filePath)
+                print(&quot;sac file downloaded: &quot; + sacName)
+    print(&quot;ALL Done！&quot;)
+                
+if __name__ == '__main__':
+    SWEEP_ID = ['SWEEP_0183','SWEEP_0189']
+    STATION = ['N225','N226','N227','N228','N197','N198','N199','N200','N201',\
+               'N202','N203','N204','N205','N206','N207','N180','N181','N182',\
+                   'N183','N184','N185','N164','N165','N166','N167','N168','N144',\
+                       'N145','N146','N147','N148','N149']
+    CHANNEL = ['E','N','Z']
+    main(SWEEP_ID,STATION,CHANNEL)
+</code></pre>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%EF%B8%8Fparticipants">❤️PARTICIPANTS</a>
-<ul>
-<li><a href="#researcher">Researcher</a>
-<ul>
-<li><a href="#xiangfang-zeng-%E6%9B%BE%E7%A5%A5%E6%96%B9">Xiangfang Zeng （曾祥方）</a></li>
-</ul>
-</li>
-<li><a href="#students">Students</a>
-<ul>
-<li><a href="#rongbin-lin-%E6%9E%97%E8%9E%8D%E5%86%B0">Rongbin Lin (林融冰)</a></li>
-<li><a href="#zhenghong-song-%E5%AE%8B%E6%94%BF%E5%AE%8F">Zhenghong Song (宋政宏)</a></li>
-<li><a href="#gongbo-zhang-%E5%BC%A0%E5%AE%AB%E5%8D%9A">Gongbo Zhang (张宫博)</a></li>
-</ul>
-</li>
-<li><a href="#former-students">Former students</a>
-<ul>
-<li><a href="#yaling-ren-%E4%BB%BB%E4%BA%9A%E7%8E%B2">Yaling Ren （任亚玲）</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhhsong.GitHub.io/post/cong-ncedc-xia-zai-suo-xu-di-zhen-de-di-zhen-ji-lu-bing-huo-qu-yi-qi-xiang-ying-wen-jian/">
+              <h3 class="post-title">
+                从NCEDC下载所需地震的地震记录并获取仪器响应文件
+              </h3>
+            </a>
+          </div>
         
 
         
