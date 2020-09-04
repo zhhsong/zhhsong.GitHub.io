@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
     <title>Applied and Environmental Seismology Group</title>
-    <updated>2020-09-04T14:50:24.032Z</updated>
+    <updated>2020-09-04T14:52:21.787Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
@@ -13,43 +13,25 @@
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
     <entry>
-        <title type="html"><![CDATA[下载PoroTomo主动源的地震仪数据]]></title>
-        <id>https://zhhsong.GitHub.io/post/xia-zai-porotomo-zhu-dong-yuan-de-di-zhen-yi-shu-ju/</id>
-        <link href="https://zhhsong.GitHub.io/post/xia-zai-porotomo-zhu-dong-yuan-de-di-zhen-yi-shu-ju/">
+        <title type="html"><![CDATA[HAPPY TEACHER'S DAY ]]></title>
+        <id>https://zhhsong.GitHub.io/post/happy-teachers-day/</id>
+        <link href="https://zhhsong.GitHub.io/post/happy-teachers-day/">
         </link>
-        <updated>2020-09-04T14:42:55.000Z</updated>
-        <content type="html"><![CDATA[<p>因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。<br>
-关于PoroTomo其他数据的需求可以参考该程序进行修改。</p>
-<pre><code>import urllib
-import os
-def download_file(url, destDir):
-	urllib.request.urlretrieve(url, destDir)
-
-def main(sweep_id, station, channel, filename = 'Nodal_data'):
-    website = &quot;ftp://roftp.ssec.wisc.edu/porotomo/PoroTomo/DATA/NODAL_SAC_SWEEP/nodal_sac_files/&quot; 
-    destDir = &quot;./&quot; + filename +'/'
-    if os.path.exists(destDir)==False:
-        os.mkdir(destDir)
-    for i in range(len(sweep_id)):
-        for j in range(len(station)):
-            for k in range(len(channel)):
-                url = website + sweep_id[i] +'/sac_files/'
-                sacName = sweep_id[i] + '.PG.' + station[j] + '.EH' + channel[k] + '.298.sac' 
-                url += sacName
-                filePath = destDir + sacName
-                download_file(url, filePath)
-                print(&quot;sac file downloaded: &quot; + sacName)
-    print(&quot;ALL Done！&quot;)
-                
-if __name__ == '__main__':
-    SWEEP_ID = ['SWEEP_0183','SWEEP_0189']
-    STATION = ['N225','N226','N227','N228','N197','N198','N199','N200','N201',\
-               'N202','N203','N204','N205','N206','N207','N180','N181','N182',\
-                   'N183','N184','N185','N164','N165','N166','N167','N168','N144',\
-                       'N145','N146','N147','N148','N149']
-    CHANNEL = ['E','N','Z']
-    main(SWEEP_ID,STATION,CHANNEL)
-</code></pre>
+        <updated>2020-09-09T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>曾老师：<br>
+随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。<br>
+目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。<br>
+网站的搭建和维护可能都比较困难，恰巧我没有经验。<br>
+网页的设计以及细节我也确实不会。<br>
+所以目前我利用傻瓜的方式搭建了一个Github Pages的免费主页，只有1G的空间，随着工作的积累，后续在考虑迁移至服务器。<br>
+我希望能够一直维护属于我们组的网站，并不断完善使其达到可以展示给别人看的程度。<br>
+当然，目前的界面有些丑，但还可以满足当下需求，等内容逐渐完善，我在拿出一些时间更进一步学习一下，使其美观。<br>
+并且希望能够一直继承下去。</p>
+<p>哦，对了，域名是： zengxf.group<br>
+有点尴尬的教师节礼物，希望您别嫌弃~<br>
+再次祝您教师节快乐！</p>
+<p>宋政宏<br>
+2020.09.10</p>
 ]]></content>
     </entry>
 </feed>
