@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
     <title>Applied and Environmental Seismology Group</title>
-    <updated>2020-09-04T09:54:16.004Z</updated>
+    <updated>2020-09-04T09:57:16.862Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
@@ -26,8 +26,7 @@
 <p>张丽娜, 任亚玲, 林融冰, 宋政宏, &amp; 曾祥方. (2020). 分布式光纤声波传感器及其在天然地震学研究中的应用. 地球物理学进展,  <strong>(1)</strong>, 9.</p>
 <h3 id="2019">2019</h3>
 <p>Zeng, X., &amp; Thurber, C. (2019). Three-dimensional shear wave velocity structure revealed with ambient noise tomography in the Parkfield, California region. Physics of the Earth and Planetary Interiors, 292, 67-75.</p>
-<p>Luo, X., Zeng, X., Dong, P., Zhou, Y., Wei, X., &amp; Cheng, H. (2019). The Longnan M_S5. 5 Earthquake on September 12, 2008: A Very Shallow Event Probably Triggered by the Wenchuan Earthquake. Earthquake Research in China,<br>
-<strong>(3)</strong>, 3.<br>
+<p>Luo, X., Zeng, X., Dong, P., Zhou, Y., Wei, X., &amp; Cheng, H. (2019). The Longnan M_S5. 5 Earthquake on September 12, 2008: A Very Shallow Event Probably Triggered by the Wenchuan Earthquake. Earthquake Research in China, <strong>(3)</strong>, 3.<br>
 Zhang, L., Luo, Y., Chen, Z., Xie, Z., Zhou, L., &amp; Zeng, X. (2019). Surface Wave Group Velocity Tomography Imaging from Ambient Noise for Fujian Province and Its Adjacent Areas. Earthquake Research in China, 33 <strong>(1)</strong>, 52-61.</p>
 <h3 id="2018">2018</h3>
 <p>Wang, H. F., Zeng, X., Miller, D. E., Fratta, D., Feigl, K. L., Thurber, C. H., &amp; Mellors, R. J. (2018). Ground motion response to an ML 4.3 earthquake using co-located distributed acoustic sensing and seismometer arrays. Geophysical Journal International, 213 <strong>(3)</strong>, 2020-2036.</p>
@@ -36,7 +35,7 @@ Zhang, L., Luo, Y., Chen, Z., Xie, Z., Zhou, L., &amp; Zeng, X. (2019). Surface 
 <h3 id="2017">2017</h3>
 <p>Zeng, X., Lancelle, C., Thurber, C., Fratta, D., Wang, H., Lord, N., ... &amp; Clarke, A. (2017). Properties of noise cross‐correlation functions obtained from a distributed acoustic sensing array at Garner Valley, California. Bulletin of the Seismological Society of America, 107 <strong>(2)</strong>, 603-610.</p>
 <h3 id="2016">2016</h3>
-<p>Zeng, X., Thurber, C. H., Shelly, D. R., Harrington, R. M., Cochran, E. S., Bennington, N. L., ... &amp; McClement, K. (2016). 3-DP-and S-wave velocity structure and low-frequency earthquake locations in the Parkfield, California region. Geophysical Journal International, 206**(3)**, 1574-1585.</p>
+<p>Zeng, X., Thurber, C. H., Shelly, D. R., Harrington, R. M., Cochran, E. S., Bennington, N. L., ... &amp; McClement, K. (2016). 3-DP-and S-wave velocity structure and low-frequency earthquake locations in the Parkfield, California region. Geophysical Journal International, 206 <strong>(3)</strong>, 1574-1585.</p>
 <p>Zeng, X., &amp; Thurber, C. H. (2016). A graphics processing unit implementation for time–frequency phase‐weighted stacking. Seismological Research Letters, 87 <strong>(2A)</strong>, 358-362.</p>
 <h2 id="abstract">ABSTRACT</h2>
 <hr>
