@@ -1,0 +1,247 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NA+频散曲线反演程序 | Applied and Environmental Seismology Group</title>
+<link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1599460206487">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="NA+频散曲线反演程序 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="该程序可以用于Rayleigh和Love波相速度以及群速度的反演，正演采用CPS330中的surf96计算，反演使用邻域算法。在python环境下调用。
+需要的环境包括numpy,matplotlib,pysurf96以及neighborh..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://zhhsong.GitHub.io">
+  <img class="avatar" src="https://zhhsong.GitHub.io/images/avatar.png?v=1599460206487" alt="">
+  </a>
+  <h1 class="site-title">
+    Applied and Environmental Seismology Group
+  </h1>
+  <p class="site-description">
+    *****
+
+
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          HOME
+        </a>
+      
+    
+      
+        <a href="https://zhhsong.GitHub.io/post/publication" class="menu">
+          PUBLICATION
+        </a>
+      
+    
+      
+        <a href="/post/researchers" class="menu">
+          RESEARCHERS
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          ARCHIVES
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          TAGS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              NA+频散曲线反演程序
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-09-07
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>该程序可以用于Rayleigh和Love波相速度以及群速度的反演，正演采用CPS330中的surf96计算，反演使用邻域算法。在python环境下调用。<br>
+需要的环境包括<code>numpy</code>,<code>matplotlib</code>,<code>pysurf96</code>以及<code>neighborhood</code><br>
+其中<code>pysurf96</code>以及<code>neighborhood</code>可以通过以下链接了解，并通过pip进行安装<br>
+pysurf: <a href="https://github.com/miili/pysurf96">https://github.com/miili/pysurf96</a><br>
+<code>pip install git+https://github.com/miili/pysurf96</code><br>
+neighborhood: &lt;https://pypi.org/project/neighborhood<br>
+<code>pip install neighborhood&gt;</code><br>
+其中pysurf安装后需要去安装目录中找到wrapper.py进行修改，源程序设置的是当搜索不到根则程序停止运行，为搜索方便将其更改为搜索不到根返回0值<br>
+代码替换如下：</p>
+<pre><code>if error &gt; 0:
+#        raise Surf96Error(
+#            'surf96 threw an error! '
+#            'This may be due to low velocity zone causing'
+#            ' reverse phase velocity dispersion,'
+#            ' and mode jumping. Due to looking for Love waves in a halfspace'
+#            ' which is OK if there are Rayleigh data.')
+        result = num.zeros(MAXPERIODS)   
+</code></pre>
+<p>下面为一个基阶+高阶Rayleigh波相速度频散曲线反演的示例：</p>
+<pre><code>import neighborhood as nbr
+from pysurf96 import surf96
+import numpy as np
+import matplotlib.pyplot as plt
+def forward(x):
+    vp = x*1.73
+    rho = np.ones((num_dim))*2
+    vel_fund = surf96(thickness, vp, x, rho, fund_period,
+                    wave='rayleigh', mode=1, velocity='phase', flat_earth=True)
+    err = np.sqrt(np.mean((fund[:,1]-vel_fund)**2))
+    if highmod:
+        vel_high = surf96(thickness, vp, x, rho, high_period,
+                    wave='rayleigh', mode=2, velocity='phase', flat_earth=True)
+        err = err+np.sqrt(np.mean((high[:,1]-vel_high)**2))
+    return err
+
+if __name__=='__main__':
+    fundfile = 'disp/fundmodcc_pws_140_145_190.txt'
+    highfile = 'disp/highmodcc_pws_100_105_150.txt'
+    highmod = False
+    num_dim = 5
+    thickness = np.array([0.02, 0.02, 0.03,0.03, 0])
+    vs_range = [(.1, .5),(.1,.5),(.1,.6),(.1,.8),(.3,1)]
+    fund = np.loadtxt(fundfile)
+    fund_period = 1/fund[:,0]
+    fund[:,1] = fund[:,1]/1000
+    if highmod:
+        high = np.loadtxt(highfile)
+        high_period = 1/high[:,0]
+        high[:,1] = high[:,1]/1000
+    srch = nbr.Searcher(
+        objective=forward,
+        limits=vs_range.copy(),
+        num_samp=50,
+        num_resamp=25,
+        maximize=False,
+        verbose=True
+        )
+    srch.update(1000)
+    result = srch.sample[0]['param']
+    vp = result*1.73
+    rho = np.ones((num_dim))*2
+    vel_fund = surf96(thickness, vp, result, rho, fund_period,
+                    wave='rayleigh', mode=1, velocity='phase', flat_earth=True)
+    plt.plot(fund[:,0],fund[:,1],'k',label='obs')
+    plt.plot(fund[:,0],vel_fund,'r',label='inv')
+    if highmod:
+        vel_high = surf96(thickness, vp, result, rho, high_period,
+                    wave='rayleigh', mode=2, velocity='phase', flat_earth=True)
+        plt.plot(high[:,0],high[:,1],'k',label='obs')
+        plt.plot(high[:,0],vel_high,'r',label='inv')
+    plt.show()
+#    srch.plot()  #PPDF
+</code></pre>
+<p>需要Love波以及群速度的只需要将<code>velocity='phase'</code>改为<code>velocity='group'</code>，或者将<code>wave='rayleigh'</code>改为<code>wave='love'</code>， <code>mode=1</code>表示基阶， <code>mode=2</code>表示一阶以此类推。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://zhhsong.GitHub.io/post/xia-zai-porotomo-zhu-dong-yuan-de-di-zhen-yi-shu-ju/">
+              <h3 class="post-title">
+                下载PoroTomo主动源的地震仪数据
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://zhhsong.GitHub.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
