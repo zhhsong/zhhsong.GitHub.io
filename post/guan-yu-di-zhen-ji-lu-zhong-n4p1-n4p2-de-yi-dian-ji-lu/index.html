@@ -2,20 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>下载PoroTomo主动源的地震仪数据 | Applied and Environmental Seismology Group</title>
+<title>关于地震记录中n4p1 n4p2的一点记录 | Applied and Environmental Seismology Group</title>
 <link rel="shortcut icon" href="https://zhhsong.GitHub.io/favicon.ico?v=1601895674027">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://zhhsong.GitHub.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="下载PoroTomo主动源的地震仪数据 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="关于地震记录中n4p1 n4p2的一点记录 | Applied and Environmental Seismology Group - Atom Feed" href="https://zhhsong.GitHub.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。
-关于PoroTomo其他数据的需求可以参考该程序进行修改。
-import urllib
-impor..." />
-    <meta name="keywords" content="code" />
+    <meta name="description" content="对于sac记录经常使用p1/p2进行滤波
+其中p取1时，是对波形做一次带通滤波，由于滤波器存在相位延迟，导致波峰出现了时间延迟，因为影响到震相的最大峰值的拾取，但对震相的初至没有影响
+p取2时，对波形做正反两次带通滤波，此时不存在相位延迟，..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -85,56 +84,30 @@ impor..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              下载PoroTomo主动源的地震仪数据
+              关于地震记录中n4p1 n4p2的一点记录
             </h2>
             <div class="post-info">
               <span>
-                2020-09-04
+                2020-09-13
               </span>
               <span>
                 2 min read
               </span>
               
-                <a href="https://zhhsong.GitHub.io/tag/1_UMF5hw2/" class="post-tag">
-                  # code
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>因PoroTomo主动源地震仪的数据分层较多，当需要下载多个事件多个地震仪记录时，直接在ftp中下载较为麻烦，因此通过以下脚本对其进行下载。<br>
-关于PoroTomo其他数据的需求可以参考该程序进行修改。</p>
-<pre><code>import urllib
-import os
-def download_file(url, destDir):
-	urllib.request.urlretrieve(url, destDir)
-
-def main(sweep_id, station, channel, filename = 'Nodal_data'):
-    website = &quot;ftp://roftp.ssec.wisc.edu/porotomo/PoroTomo/DATA/NODAL_SAC_SWEEP/nodal_sac_files/&quot; 
-    destDir = &quot;./&quot; + filename +'/'
-    if os.path.exists(destDir)==False:
-        os.mkdir(destDir)
-    for i in range(len(sweep_id)):
-        for j in range(len(station)):
-            for k in range(len(channel)):
-                url = website + sweep_id[i] +'/sac_files/'
-                sacName = sweep_id[i] + '.PG.' + station[j] + '.EH' + channel[k] + '.298.sac' 
-                url += sacName
-                filePath = destDir + sacName
-                download_file(url, filePath)
-                print(&quot;sac file downloaded: &quot; + sacName)
-    print(&quot;ALL Done！&quot;)
-                
-if __name__ == '__main__':
-    SWEEP_ID = ['SWEEP_0183','SWEEP_0189']
-    STATION = ['N225','N226','N227','N228','N197','N198','N199','N200','N201',\
-               'N202','N203','N204','N205','N206','N207','N180','N181','N182',\
-                   'N183','N184','N185','N164','N165','N166','N167','N168','N144',\
-                       'N145','N146','N147','N148','N149']
-    CHANNEL = ['E','N','Z']
-    main(SWEEP_ID,STATION,CHANNEL)
-</code></pre>
+                <p>对于sac记录经常使用p1/p2进行滤波<br>
+其中p取1时，是对波形做一次带通滤波，由于滤波器存在相位延迟，导致波峰出现了时间延迟，因为影响到震相的最大峰值的拾取，但对震相的初至没有影响<br>
+p取2时，对波形做正反两次带通滤波，此时不存在相位延迟，因为不会影响到峰值的拾取，但是震相的初至则在时间上提前。<br>
+只用sac进行操作我们可以很好的理解，但是对应于其他处理方式可能没有很好的对应<br>
+因此进行了一个讨论并总结结论如下<br>
+n4p1对应obspy的处理方式为<code>xxx.filter('bandpass',freqmin=fmin,freqmax=fmax)</code><br>
+对应matlab为<code>b,a=butter(root,[fmin,fmax]*2/fs); data=filter(b,a,data);</code><br>
+n4p2对应obspy的处理方式为<code>xxx.filter('bandpass',freqmin=fmin,freqmax=fmax，zerophase=True)</code><br>
+对应matlab为<code>b,a=butter(root,[fmin,fmax]*2/fs); data=filtfilt(b,a,data);</code></p>
+<p>其实也没有那么复杂，一次滤波等效n4p1, 进行一次滤波后将序列反转在进行一次滤波就等效为n4p2</p>
 
               </div>
               <div class="toc-container">
@@ -147,9 +120,9 @@ if __name__ == '__main__':
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://zhhsong.GitHub.io/post/cong-ncedc-xia-zai-suo-xu-di-zhen-de-di-zhen-ji-lu-bing-huo-qu-yi-qi-xiang-ying-wen-jian/">
+            <a href="https://zhhsong.GitHub.io/post/napin-san-qu-xian-fan-yan-cheng-xu/">
               <h3 class="post-title">
-                从NCEDC下载所需地震的地震记录并获取仪器响应文件
+                NA+频散曲线反演程序
               </h3>
             </a>
           </div>

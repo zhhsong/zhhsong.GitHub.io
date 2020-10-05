@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhhsong.GitHub.io</id>
     <title>Applied and Environmental Seismology Group</title>
-    <updated>2020-09-07T12:02:13.896Z</updated>
+    <updated>2020-10-05T11:01:17.997Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhhsong.GitHub.io"/>
     <link rel="self" href="https://zhhsong.GitHub.io/atom.xml"/>
@@ -13,25 +13,21 @@
     <icon>https://zhhsong.GitHub.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Applied and Environmental Seismology Group</rights>
     <entry>
-        <title type="html"><![CDATA[HAPPY TEACHER'S DAY ]]></title>
-        <id>https://zhhsong.GitHub.io/post/happy-teachers-day/</id>
-        <link href="https://zhhsong.GitHub.io/post/happy-teachers-day/">
+        <title type="html"><![CDATA[关于地震记录中n4p1 n4p2的一点记录]]></title>
+        <id>https://zhhsong.GitHub.io/post/guan-yu-di-zhen-ji-lu-zhong-n4p1-n4p2-de-yi-dian-ji-lu/</id>
+        <link href="https://zhhsong.GitHub.io/post/guan-yu-di-zhen-ji-lu-zhong-n4p1-n4p2-de-yi-dian-ji-lu/">
         </link>
-        <updated>2020-09-09T16:00:00.000Z</updated>
-        <content type="html"><![CDATA[<p>曾老师：<br>
-随着我们的工作逐渐走向系统化、规范化，我希望能够建立一个我们组的主页/博客用来总结我们的经历并向他人介绍我们的工作内容。<br>
-目的包括介绍科研进展的成果，分享一些地震学中较为方便应用的小代码，某些研究相关的小知识，方便后来的学生入门。<br>
-网站的搭建和维护可能都比较困难，恰巧我没有经验。<br>
-网页的设计以及细节我也确实不会。<br>
-所以目前我利用傻瓜的方式搭建了一个Github Pages的免费主页，只有1G的空间，随着工作的积累，后续在考虑迁移至服务器。<br>
-我希望能够一直维护属于我们组的网站，并不断完善使其达到可以展示给别人看的程度。<br>
-当然，目前的界面有些丑，但还可以满足当下需求，等内容逐渐完善，我在拿出一些时间更进一步学习一下，使其美观。<br>
-并且希望能够一直继承下去。</p>
-<p>哦，对了，域名是： zengxf.group<br>
-有点尴尬的教师节礼物，希望您别嫌弃~<br>
-再次祝您教师节快乐！</p>
-<p>宋政宏<br>
-2020.09.10</p>
+        <updated>2020-09-13T06:22:12.000Z</updated>
+        <content type="html"><![CDATA[<p>对于sac记录经常使用p1/p2进行滤波<br>
+其中p取1时，是对波形做一次带通滤波，由于滤波器存在相位延迟，导致波峰出现了时间延迟，因为影响到震相的最大峰值的拾取，但对震相的初至没有影响<br>
+p取2时，对波形做正反两次带通滤波，此时不存在相位延迟，因为不会影响到峰值的拾取，但是震相的初至则在时间上提前。<br>
+只用sac进行操作我们可以很好的理解，但是对应于其他处理方式可能没有很好的对应<br>
+因此进行了一个讨论并总结结论如下<br>
+n4p1对应obspy的处理方式为<code>xxx.filter('bandpass',freqmin=fmin,freqmax=fmax)</code><br>
+对应matlab为<code>b,a=butter(root,[fmin,fmax]*2/fs); data=filter(b,a,data);</code><br>
+n4p2对应obspy的处理方式为<code>xxx.filter('bandpass',freqmin=fmin,freqmax=fmax，zerophase=True)</code><br>
+对应matlab为<code>b,a=butter(root,[fmin,fmax]*2/fs); data=filtfilt(b,a,data);</code></p>
+<p>其实也没有那么复杂，一次滤波等效n4p1, 进行一次滤波后将序列反转在进行一次滤波就等效为n4p2</p>
 ]]></content>
     </entry>
 </feed>
